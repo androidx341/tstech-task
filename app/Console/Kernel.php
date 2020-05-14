@@ -24,7 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+         $schedule->command('accounting:accrual')->dailyAt('0:0');
+         $schedule->command('accounting:fee')->monthlyOn(1, '0:30');
     }
 
     /**
